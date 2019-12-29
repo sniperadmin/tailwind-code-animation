@@ -77,7 +77,7 @@
         </div>
 
         <!-- test -->
-        <html-tag :inline="false" tagName="a" attrName="ref">
+        <html-tag ref="test" :inline="false" tagName="a" attrName="ref">
           <template v-slot:attrValues>
             name
           </template>
@@ -237,18 +237,19 @@ export default {
         .then(() => this.animateAvatarCentering())
         .then(() => this.animateNameSize())
         .then(() => this.animateRoleColor())
-        // .then(() => this.animateContactColors())
+        .then(() => this.animateContactColors())
         .then(() => this.animateContentCentering())
-        // .then(() => this.animateCardWidening())
+        .then(() => this.animateCardWidening())
         .then(() => this.animateCardFlexLayout())
         .then(() => this.animateAvatarMarginFix())
         .then(() => this.animateContentLeftAlign())
-        // .then(() => this.animateAvatarRightMargin())
-        .then(() => this.animateAvatarLarger());
-      // .then(() => this.animateResizeCursorIntoPosition())
-      // .then(() => this.animateCardResizing());
+        .then(() => this.animateAvatarRightMargin())
+        .then(() => this.animateAvatarLarger())
+        .then(() => this.animateResizeCursorIntoPosition())
+        .then(() => this.animateCardResizing());
     },
     animateCardPadding() {
+      // console.log(this.$refs.test);
       return tweenTo(
         this.$refs.cardInner,
         1,
@@ -261,7 +262,6 @@ export default {
       });
     },
     animateAvatarRadius() {
-      console.log(this.$children[1].$refs.avatarCursor);
       return tweenTo(this.$children[1].$refs.avatarCursor, 0.08, {
         visibility: "visible"
       })
@@ -365,20 +365,20 @@ export default {
         );
     },
     animateContactColors() {
-      return tweenTo(this.$refs.contactCursor1, 0.25, { visibility: "visible" })
+      return tweenTo(this.$children[5].$refs.contactCursor1, 0.25, { visibility: "visible" })
         .then(() =>
-          tweenTo(this.$refs.contactCursor2, 0.25, { visibility: "visible" })
+          tweenTo(this.$children[6].$refs.contactCursor2, 0.25, { visibility: "visible" })
         )
         .then(() => {
           return Promise.all([
             tweenStaggerTo(
-              this.$refs.classContactColor1.children,
+              this.$children[5].$refs.classContactColor1.children,
               0.08,
               { display: "inline-block" },
               0.08
             ),
             tweenStaggerTo(
-              this.$refs.classContactColor2.children,
+              this.$children[6].$refs.classContactColor2.children,
               0.08,
               { display: "inline-block" },
               0.08
@@ -403,8 +403,8 @@ export default {
         })
         .then(() => {
           return Promise.all([
-            tweenTo(this.$refs.contactCursor1, 0.08, { visibility: "hidden" }),
-            tweenTo(this.$refs.contactCursor2, 0.08, { visibility: "hidden" })
+            tweenTo(this.$children[5].$refs.contactCursor1, 0.08, { visibility: "hidden" }),
+            tweenTo(this.$children[6].$refs.contactCursor2, 0.08, { visibility: "hidden" })
           ]);
         });
     },
@@ -623,10 +623,10 @@ export default {
         );
     },
     animateAvatarRightMargin() {
-      return tweenTo(this.$refs.avatarCursor, 0.25, { visibility: "visible" })
+      return tweenTo(this.$children[1].$refs.avatarCursor, 0.25, { visibility: "visible" })
         .then(() =>
           tweenStaggerTo(
-            this.$refs.classAvatarRightMargin.$el.children,
+            this.$children[1].$refs.classAvatarRightMargin.$el.children,
             0.08,
             { display: "inline-block" },
             0.08
@@ -651,7 +651,7 @@ export default {
           );
         })
         .then(() =>
-          tweenTo(this.$refs.avatarCursor, 0.25, { visibility: "hidden" })
+          tweenTo(this.$children[1].$refs.avatarCursor, 0.25, { visibility: "hidden" })
         );
     },
     animateAvatarLarger() {

@@ -15,13 +15,13 @@
     <quote-sign />
     <!-- first class children ... -->
     <class-attrs ref="classCardFlex" :reference="'classCardFlex'">
-      <div class="hidden">m</div>
-      <div class="hidden">d</div>
-      <div class="hidden">:</div>
-      <div class="hidden">f</div>
-      <div class="hidden">l</div>
-      <div class="hidden">e</div>
-      <div class="hidden">x</div>
+      <div
+        class="hidden"
+        v-for="(value, index) in classOne.split('')"
+        :key="index"
+      >
+        {{ value }}
+      </div>
       &#160;
       <div class="hidden">&#160;</div>
     </class-attrs>
@@ -37,9 +37,13 @@
     <class-attrs ref="classCardPadding" :reference="'classCardPadding'">
       <div class="hidden">&nbsp;</div>
       &nbsp;
-      <div class="hidden">p</div>
-      <div class="hidden">-</div>
-      <div class="hidden">6</div>
+      <div
+        class="hidden"
+        v-for="(value, index) in classTwo.split('')"
+        :key="index"
+      >
+        {{ value }}
+      </div>
     </class-attrs>
 
     <div
@@ -83,6 +87,12 @@ export default {
     EqualSign,
     QuoteSign,
     ClassAttrs
+  },
+  data() {
+    return {
+      classOne: "md:flex",
+      classTwo: "p-6"
+    };
   },
   methods: {
     startAnimation() {
