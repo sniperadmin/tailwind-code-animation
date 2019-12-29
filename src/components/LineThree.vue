@@ -1,5 +1,7 @@
 <template>
   <div>
+    <div class="inline-block text-grey mr-6">3</div>
+    &#160;
     <div class="inline-block code-blue">&nbsp;&nbsp;&lt;</div>
     <div class="inline-block code-red">div</div>
     <div ref="classContentCenter" class="inline-block code-green">

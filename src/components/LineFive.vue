@@ -1,7 +1,9 @@
 <template>
   <div>
-    <div class="inline-block code-blue">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</div>
-    <div class="inline-block code-red">div</div>
+    <div class="inline-block text-grey mr-10">5</div>
+    &#160;
+    <tag-opener />
+    <tag-name />
     <div ref="classRoleColor" class="inline-block code-green">
       <div class="hidden">&nbsp;</div>
       &nbsp;
@@ -30,17 +32,27 @@
       class="invisible inline-block border-r-2 border-yellow h-6 absolute"
       style="margin-top: -0.125rem"
     ></div>
-    <div class="inline-block code-blue">&gt;</div>
-    <div class="inline-block code-white">Customer Support</div>
-    <div class="inline-block code-blue">&lt;/</div>
-    <div class="inline-block code-red">div</div>
-    <div class="inline-block code-blue">&gt;</div>
+    <tag-closer />
+    <div class="inline-block code-white">Vuejs Master</div>
+    <tag-opener />
+    <span class="code-blue">/</span>
+    <tag-name />
+    <tag-closer />
   </div>
 </template>
 
 <script>
+import TagOpener from "./tagtools/TagOpener";
+import TagCloser from "./tagtools/TagCloser";
+import TagName from "./tagtools/TagName";
+
 export default {
-  name: "line-five"
+  name: "line-five",
+  components: {
+    TagOpener,
+    TagCloser,
+    TagName
+  }
 };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
-  <div class="inline-block" :class="codeColor">
+  <div class="d-flex inline-block" :class="codeColor">
     <slot>
-      class
+      <div class="ml-2">class</div>
     </slot>
   </div>
 </template>

@@ -1,5 +1,7 @@
 <template>
   <div class="whitespace-no-wrap">
+    <div class="inline-block text-grey mr-2">1</div>
+    &#160;
     <!-- tag opener component -->
     <tag-opener class="inline-block code-blue" />
     <!-- div tag component -->
@@ -57,9 +59,9 @@
 
 <script>
 import AttrName from "./AttrName";
-import TagOpener from "./TagOpener";
-import TagCloser from "./TagCloser";
-import TagName from "./TagName";
+import TagOpener from "./tagtools/TagOpener";
+import TagCloser from "./tagtools/TagCloser";
+import TagName from "./tagtools/TagName";
 import EqualSign from "./EqualSign";
 import QuoteSign from "./QuoteSign";
 import ClassAttrs from "./ClassAttrs";

@@ -26,6 +26,12 @@
         class="code-white text-sm font-mono bg-black p-6 rounded leading-normal overflow-x-auto"
         style="width: 36rem; line-height: 1.675"
       >
+        <div class="flex mb-5">
+          <span class="h-3 w-3 bg-red rounded-full"></span>
+          <span class="ml-2 h-3 w-3 bg-orange rounded-full"></span>
+          <span class="ml-2 h-3 w-3 bg-green rounded-full"></span>
+        </div>
+
         <!-- coding line one -->
         <line-one></line-one>
         <!-- ./coding line one -->
@@ -55,17 +61,31 @@
         <!-- ./coding line 7 -->
 
         <div>
+          <div class="inline-block text-grey mr-6">8</div>
+          &#160;
           <div class="inline-block code-blue">&nbsp;&nbsp;&lt;/</div>
-          <div class="inline-block code-red">div</div>
+          <tag-name>div</tag-name>
           <div class="inline-block code-blue">&gt;</div>
         </div>
 
         <div>
-          <div class="inline-block code-blue">&lt;</div>
-          <div class="inline-block code-red">div</div>
+          <div class="inline-block text-grey mr-2">9</div>
+          &#160;
+          <div class="inline-block code-blue">&lt;/</div>
+          <tag-name />
           <div class="inline-block code-blue">&gt;</div>
         </div>
+
+        <!-- test -->
+        <html-tag :inline="false" tagName="a" attrName="ref">
+          <template v-slot:attrValues>
+            name
+          </template>
+
+          code
+        </html-tag>
       </div>
+
       <div
         ref="card"
         class="shadow-lg leading-normal self-end bg-white w-64 rounded -mt-16 relative"
@@ -75,21 +95,21 @@
           <img
             ref="avatar"
             class="h-24 w-24 block mr-6 rounded-full"
-            src="https://randomuser.me/api/portraits/women/17.jpg"
+            src="https://media.licdn.com/dms/image/C4D03AQGr_sf7Je78ng/profile-displayphoto-shrink_200_200/0?e=1582761600&v=beta&t=G3HQNsy3N-A9fHdG3I-D8CkOhEtQFoMr0ukj99CwBkU"
             alt
           />
           <div ref="content" class="text-grey-darkest text-left">
             <h2 ref="name" class="text-xl font-normal text-grey-darkest">
-              <div class="inline-block relative">Erin Lindford</div>
+              <div class="inline-block relative">Nasr Galal</div>
             </h2>
             <div ref="role">
               <div class="inline-block relative text-purple">
-                Customer Support
+                Vuejs Master
               </div>
             </div>
             <div ref="email">
               <div class="inline-block relative text-grey-dark">
-                erinlindford@example.com
+                nasrbue@google.com
               </div>
             </div>
             <div ref="phone">
@@ -103,21 +123,21 @@
           <img
             ref="avatar"
             class="h-16 w-16 block mb-4 mx-auto rounded-full"
-            src="https://randomuser.me/api/portraits/women/17.jpg"
+            src="https://media.licdn.com/dms/image/C4D03AQGr_sf7Je78ng/profile-displayphoto-shrink_200_200/0?e=1582761600&v=beta&t=G3HQNsy3N-A9fHdG3I-D8CkOhEtQFoMr0ukj99CwBkU"
             alt
           />
           <div ref="content" class="text-grey-darkest text-center">
             <h2 ref="name" class="text-xl font-normal text-grey-darkest">
-              <div class="inline-block relative">Erin Lindford</div>
+              <div class="inline-block relative">Nasr Galal</div>
             </h2>
             <div ref="role">
               <div class="inline-block relative text-purple">
-                Customer Support
+                Vuejs Master
               </div>
             </div>
             <div ref="email">
               <div class="inline-block relative text-grey-dark">
-                erinlindford@example.com
+                nasrbue@gmail.com
               </div>
             </div>
             <div ref="phone">
@@ -131,18 +151,18 @@
           <img
             ref="avatar"
             class="h-16 w-16 block mb-4"
-            src="https://randomuser.me/api/portraits/women/17.jpg"
+            src="https://media.licdn.com/dms/image/C4D03AQGr_sf7Je78ng/profile-displayphoto-shrink_200_200/0?e=1582761600&v=beta&t=G3HQNsy3N-A9fHdG3I-D8CkOhEtQFoMr0ukj99CwBkU"
             alt
           />
           <div ref="content" class="text-grey-darkest">
             <h2 ref="name" class="text-base font-normal text-grey-darkest">
-              <div class="inline-block relative">Erin Lindford</div>
+              <div class="inline-block relative">Nasr Galal</div>
             </h2>
             <div ref="role">
-              <div class="inline-block relative">Customer Support</div>
+              <div class="inline-block relative">Vuejs Master</div>
             </div>
             <div ref="email">
-              <div class="inline-block relative">erinlindford@example.com</div>
+              <div class="inline-block relative">nasrbue@gmail.com</div>
             </div>
             <div ref="phone">
               <div class="inline-block relative">(555) 765-4321</div>
@@ -186,6 +206,10 @@ import LineFour from "./LineFour";
 import LineFive from "./LineFive";
 import LineSix from "./LineSix";
 import LineSeven from "./LineSeven";
+import TagName from "./tagtools/TagName";
+// import OpenCustomTag from "./OpenCustomTag";
+// import CloseCustomTag from "./CloseCustomTag";
+import HtmlTag from "./HtmlTag";
 
 import { TweenLite, Power4 } from "gsap";
 import { tweenTo, tweenStaggerTo } from "../gsapDefinitions";
@@ -200,7 +224,11 @@ export default {
     LineFour,
     LineFive,
     LineSix,
-    LineSeven
+    LineSeven,
+    TagName,
+    // OpenCustomTag,
+    // CloseCustomTag,
+    HtmlTag
   },
   methods: {
     runAnimation() {
@@ -208,7 +236,7 @@ export default {
         .then(() => this.animateAvatarRadius())
         .then(() => this.animateAvatarCentering())
         .then(() => this.animateNameSize())
-        // .then(() => this.animateRoleColor())
+        .then(() => this.animateRoleColor())
         // .then(() => this.animateContactColors())
         .then(() => this.animateContentCentering())
         // .then(() => this.animateCardWidening())

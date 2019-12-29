@@ -1,5 +1,7 @@
 <template>
   <div class="whitespace-no-wrap">
+    <div class="inline-block text-grey mr-6">2</div>
+    &#160;
     <!-- open tag -->
     <tag-opener class="inline-block code-blue" />
 
@@ -13,9 +15,12 @@
 
     <div class="inline-block code-green">h-16 w-16</div>
 
+    <!-- typing avatar sizing class -->
     <class-attrs ref="classAvatarLarger" :reference="'classAvatarLarger'">
+      <!-- adding space character -->
       <div class="hidden">&nbsp;</div>
       &nbsp;
+      <!-- typed letters letters -->
       <div class="hidden">m</div>
       <div class="hidden">d</div>
       <div class="hidden">:</div>
@@ -40,6 +45,7 @@
       style="margin-top: -0.125rem"
     ></div>
 
+    <!-- typing avatar roundness class -->
     <class-attrs ref="classAvatarRounded" :reference="'classAvatarRounded'">
       <div class="hidden">&nbsp;</div>
       &nbsp;
@@ -57,6 +63,7 @@
       <div class="hidden">l</div>
     </class-attrs>
 
+    <!-- typing avatar margin class -->
     <class-attrs ref="classAvatarCenter" :reference="'classAvatarCenter'">
       <div class="hidden">&nbsp;</div>
       &nbsp;
@@ -69,6 +76,7 @@
       <div class="hidden">o</div>
     </class-attrs>
 
+    <!-- typing avatar left margin fix class -->
     <class-attrs ref="classAvatarMarginFix" :reference="'classAvatarMarginFix'">
       <div class="hidden">&nbsp;</div>
       &nbsp;
@@ -81,6 +89,7 @@
       <div class="hidden">0</div>
     </class-attrs>
 
+    <!-- typing avatar right margin class -->
     <class-attrs
       ref="classAvatarRightMargin"
       :reference="'classAvatarRightMargin'"
@@ -118,9 +127,9 @@
 <script>
 import ClassAttrs from "./ClassAttrs";
 import AttrName from "./AttrName";
-import TagOpener from "./TagOpener";
-import TagCloser from "./TagCloser";
-import TagName from "./TagName";
+import TagOpener from "./tagtools/TagOpener";
+import TagCloser from "./tagtools/TagCloser";
+import TagName from "./tagtools/TagName";
 import EqualSign from "./EqualSign";
 import QuoteSign from "./QuoteSign";
 

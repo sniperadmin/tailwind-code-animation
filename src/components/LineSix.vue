@@ -1,5 +1,7 @@
 <template>
   <div class="whitespace-no-wrap">
+    <div class="inline-block text-grey mr-10">6</div>
+    &#160;
     <div class="inline-block code-blue">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</div>
     <div class="inline-block code-red">div</div>
     <div ref="classContactColor1" class="inline-block code-green">
@@ -33,7 +35,7 @@
       style="margin-top: -0.125rem"
     ></div>
     <div class="inline-block code-blue">&gt;</div>
-    <div class="inline-block code-white">erinlindford@example.com</div>
+    <div class="inline-block code-white">nasrbue@gmail.com</div>
     <div class="inline-block code-blue">&lt;/</div>
     <div class="inline-block code-red">div</div>
     <div class="inline-block code-blue">&gt;</div>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="inline-block code-blue">
     <div>&lt;</div>
   </div>
 </template>
